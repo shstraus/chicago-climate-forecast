@@ -1,0 +1,61 @@
+name: chicago-climate
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+
+  # --- Core data stack ---
+  - numpy
+  - pandas
+  - pyarrow
+  - scipy
+
+  # --- Climate / gridded data (CMIP6, NetCDF, Zarr) ---
+  - xarray
+  - dask
+  - netcdf4
+  - h5netcdf
+  - zarr
+  - fsspec
+  - s3fs            # NASA NEX-GDDP-CMIP6 on AWS open data
+  - gcsfs           # Pangeo CMIP6 on Google Cloud
+  - intake-esm      # catalog search for Pangeo CMIP6
+  - cftime
+
+  # --- Geospatial ---
+  - geopandas
+  - rioxarray
+  - regionmask      # mask grid cells by county/city polygons
+  - cartopy
+
+  # --- Econometrics / modeling ---
+  - statsmodels
+  - linearmodels    # panel regressions with fixed effects
+  - scikit-learn
+
+  # --- Plotting ---
+  - matplotlib
+  - seaborn
+
+  # --- Data acquisition and config ---
+  - requests
+  - pyyaml
+  - python-dotenv
+
+  # --- Dev tooling ---
+  - pytest
+  - ruff
+  - pre-commit
+  - jupyterlab
+  - ipykernel
+  - nbstripout      # strip notebook outputs before commit
+
+  # --- pip-only packages go here (try conda-forge first) ---
+  # - pip
+  # - pip:
+  #     - some-package
+
+# Versions are intentionally unpinned for the first draft. Once the pipeline
+# works, record exact versions for reproducibility:
+#   conda env export --no-builds > environment.lock.yml
+# (or use conda-lock for cross-platform lock files).

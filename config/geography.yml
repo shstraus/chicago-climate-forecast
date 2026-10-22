@@ -1,0 +1,25 @@
+# Geography definitions, used by download scripts.
+# FIPS codes: Illinois = 17, Cook County = 031, City of Chicago (place) = 14000,
+# Chicago-Naperville-Elgin CBSA = 16980. Double-check against Census docs before relying on them.
+
+geographies:
+  chicago_city:
+    description: City of Chicago (Census place)
+    for: "place:14000"
+    in: "state:17"
+  cook_county:
+    description: Cook County, IL
+    for: "county:031"
+    in: "state:17"
+  chicago_msa:
+    description: Chicago-Naperville-Elgin metropolitan statistical area
+    for: "metropolitan statistical area/micropolitan statistical area:16980"
+    in: null
+
+# Bounding box for subsetting gridded climate data (decimal degrees, lon in -180..180).
+# Deliberately a bit larger than the city to capture neighboring grid cells.
+climate_bbox:
+  lat_min: 41.4
+  lat_max: 42.3
+  lon_min: -88.4
+  lon_max: -87.4

@@ -1,0 +1,23 @@
+# What to download and with which parameters.
+
+census_acs5:
+  # ACS 5-year estimates. Each year is the END year of the 5-year window.
+  # ACS 5-year data begin with 2009; check the latest released year before extending.
+  years: [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023]
+  # (2020 5-year is omitted: it was released as experimental, with known data-quality caveats.
+  #  Add it back deliberately if you want it.)
+  variables:
+    B01003_001E: total_population
+    B19013_001E: median_household_income
+    B19301_001E: per_capita_income
+    B23025_003E: labor_force
+    B23025_005E: unemployed
+    B25077_001E: median_home_value
+    B01002_001E: median_age
+    B25064_001E: median_gross_rent
+
+nex_gddp_cmip6:
+  scenarios: [ssp245, ssp585]
+  variables: [tas, tasmax, tasmin, pr]
+  # Models to be chosen after listing the bucket; do not assume all models have all scenarios.
+  models: []
